@@ -14,4 +14,8 @@ export const routes: Routes = [
     path: 'event',
     loadChildren: () => import('./events/feature/event-shell/event-shell.routes').then( m => m.routes)
   },
+  {
+    path: 'register',
+    loadComponent: () => import('./auth/feature/register/register.page').then( m => m.RegisterPage)
+  },
 ];
