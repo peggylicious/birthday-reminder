@@ -1,0 +1,7 @@
+{
+  "name": "\"Birthday Reminder\"",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
