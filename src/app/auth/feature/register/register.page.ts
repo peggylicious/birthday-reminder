@@ -15,7 +15,7 @@ import { AuthService } from '../../data-access/auth.service';
   // providers: [AuthService]
 })
 export class RegisterPage implements OnInit {
-
+  formName: String = 'register'
   constructor(private auth: AuthService) { }
 
   ngOnInit() {

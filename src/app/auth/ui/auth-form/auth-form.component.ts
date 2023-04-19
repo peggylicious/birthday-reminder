@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
@@ -13,6 +13,7 @@ import { FormGroup, FormControl } from '@angular/forms';
   imports: [IonicModule, CommonModule, FormsModule, ReactiveFormsModule]
 })
 export class AuthFormComponent  implements OnInit {
+  @Input() formName: String = "";
   @Output() onSubmitForm = new EventEmitter();
   authForm = new FormGroup({
     email: new FormControl(''),

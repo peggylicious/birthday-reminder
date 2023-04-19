@@ -3,5 +3,5 @@
     errorText="Please enter a valid email" formControlName="email"></ion-input>
   <ion-input type="password" label="Password:" labelPlacement="stacked" shape="" fill="solid"[counter]="true" maxlength="100"
     errorText="Please enter a valid password" formControlName="password"></ion-input>
-    <ion-button expand="full" type="submit" [disabled]="!authForm.valid">Login</ion-button>
+    <ion-button expand="full" type="submit" [disabled]="!authForm.valid">{{formName}}</ion-button>
 </form>

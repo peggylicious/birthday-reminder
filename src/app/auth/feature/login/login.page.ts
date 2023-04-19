@@ -12,7 +12,7 @@ import { AuthFormComponent } from '../../ui/auth-form/auth-form.component';
   imports: [IonicModule, CommonModule, FormsModule, AuthFormComponent]
 })
 export class LoginPage implements OnInit {
-
+  formName: String = 'login'
   constructor() { }
 
   ngOnInit() {
