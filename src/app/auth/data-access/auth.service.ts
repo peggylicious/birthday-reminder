@@ -11,4 +11,9 @@ export class AuthService {
     console.log(data)
     return this.http.post(`${this.baseUrl}/signup`, data)
   }
+
+  login(data: any){
+    console.log(data)
+    return this.http.post(`${this.baseUrl}/login`, data)
+  }
 }
