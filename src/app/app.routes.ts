@@ -10,4 +10,8 @@ export const routes: Routes = [
     redirectTo: 'home',
     pathMatch: 'full',
   },
+  {
+    path: 'event',
+    loadChildren: () => import('./events/feature/event-shell/event-shell.routes').then( m => m.routes)
+  },
 ];
