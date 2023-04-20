@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 import { AuthFormComponent } from '../../ui/auth-form/auth-form.component';
 import { AuthService } from '../../data-access/auth.service';
+import { User } from 'src/app/models/auth.interface';
 // import { AuthService } from '../../data-access/auth.service';
 
 @Component({
@@ -20,9 +21,9 @@ export class RegisterPage implements OnInit {
 
   ngOnInit() {
   }
-  registerUser(event:any){
-    console.log(event)
-    this.auth.register(event.value).subscribe(res=>{
+  registerUser(data:User){
+    console.log(data)
+    this.auth.register(data).subscribe(res=>{
       console.log(res)
     })
   }

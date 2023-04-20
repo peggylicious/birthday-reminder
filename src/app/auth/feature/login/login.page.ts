@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 import { AuthFormComponent } from '../../ui/auth-form/auth-form.component';
 import { AuthService } from '../../data-access/auth.service';
+import { User } from 'src/app/models/auth.interface';
 
 @Component({
   selector: 'app-login',
@@ -18,9 +19,11 @@ export class LoginPage implements OnInit {
 
   ngOnInit() {
   }
-  loginUser(event:any){
-    console.log(event)
-    this.auth.login(event.value).subscribe(res=>{
+  loginUser(data:User){
+    console.log(data)
+    this.auth.login(data).subscribe(res=>{
+      localStorage.setItem('reminderToken', res.token)
+      localStorage.setItem('reminderUserId', res.loggedUserId)
       console.log(res)
     })
   }

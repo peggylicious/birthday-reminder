@@ -1,4 +1,5 @@
 import { Routes } from '@angular/router';
+import { AuthGuard } from './auth/utils/auth.guard';
 
 export const routes: Routes = [
   {
@@ -12,7 +13,8 @@ export const routes: Routes = [
   },
   {
     path: 'event',
-    loadChildren: () => import('./events/feature/event-shell/event-shell.routes').then( m => m.routes)
+    loadChildren: () => import('./events/feature/event-shell/event-shell.routes').then( m => m.routes),
+    canActivate: [AuthGuard]
   },
   {
     path: 'register',

@@ -24,6 +24,6 @@ export class AuthFormComponent  implements OnInit {
   ngOnInit() {}
   onSubmit(){
     console.log("Submitting form ...")
-    this.onSubmitForm.emit(this.authForm)
+    this.onSubmitForm.emit(this.authForm.value)
   }
 }
