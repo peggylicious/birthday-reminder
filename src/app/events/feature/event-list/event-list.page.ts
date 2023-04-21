@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
+import { EventsService } from '../../data-access/events.service';
 
 @Component({
   selector: 'app-event-list',
@@ -11,10 +12,14 @@ import { IonicModule } from '@ionic/angular';
   imports: [IonicModule, CommonModule, FormsModule]
 })
 export class EventListPage implements OnInit {
-
-  constructor() { }
+  allEvents:[] = [];
+  constructor(private events: EventsService) { }
 
   ngOnInit() {
+    this.events.getEvents().subscribe(res=>{
+      console.log(res)
+      this.allEvents = res
+    })
   }
 
 }
