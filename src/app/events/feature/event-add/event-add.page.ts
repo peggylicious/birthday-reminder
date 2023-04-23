@@ -22,7 +22,7 @@ export class EventAddPage implements OnInit {
   constructor( private eventService: EventsService) { }
 
   ngOnInit() {
-    // this.allTz = this.getTimeZones()
+    this.allTz = this.getTimeZones()
   }
 
   createEvent(data:EventForm){
@@ -38,7 +38,7 @@ export class EventAddPage implements OnInit {
     })
   }
   getTimeZones() {
-    console.log(momentz.tz.names())
+    // console.log(momentz.tz.names())
     return momentz.tz.names()
   };
 }

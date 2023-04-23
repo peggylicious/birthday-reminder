@@ -6,12 +6,13 @@
   <!-- <ion-input type="number" label="Notification:" labelPlacement="stacked" shape="" fill="solid"[counter]="true" maxlength="100"
     errorText="Please enter a valid notification" formControlName="notification"></ion-input> -->
     <ion-select fill="outline" shape="" label="Notification search:" labelPlacement="stacked" formControlName="notification">
+      <ion-select-option [value]="1">{{'1 minute'}}</ion-select-option>
       <ion-select-option [value]="15">{{'15 minutes'}}</ion-select-option>
       <ion-select-option [value]="20">{{'20 minutes'}}</ion-select-option>
       <ion-select-option [value]="30">{{'30 minutes'}}</ion-select-option>
     </ion-select>
-    <ion-select fill="outline" shape="" label="Time Zone:" labelPlacement="stacked">
-      <ion-select-option value="apples" *ngFor="let tz of allTz">{{tz}}</ion-select-option>
+    <ion-select fill="outline" shape="" label="Time Zone:" labelPlacement="stacked" formControlName="timeZone">
+      <ion-select-option [value]="tz" *ngFor="let tz of allTz">{{tz}}</ion-select-option>
     </ion-select>
 
   <!-- <ion-input type="date" label="Birthday:" labelPlacement="stacked" shape="" fill="solid"[counter]="true" maxlength="100"
