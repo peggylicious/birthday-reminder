@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, Validators } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormGroup, FormControl } from '@angular/forms';
@@ -19,17 +19,19 @@ export class EventFormComponent  implements OnInit {
   @Input() allTz: string[] | undefined;
   // @Input() alarmTimes: string[] | undefined = ['15 minutes']
   @Output() onSubmitForm = new EventEmitter();
-  eventForm = new FormGroup({
-    created_by: new FormControl(localStorage.getItem('reminderUserId')),
-    name: new FormControl(''),
-    phoneNumber: new FormControl(''),
-    notification: new FormControl(0),
-    timeZone: new FormControl(''),
-    time: new FormControl(''),
-    recepient: new FormControl('')
-  })
   myDate:any;
   latestForm:any;
+  currentTime: any = new Date();
+  eventForm = new FormGroup({
+    created_by: new FormControl(localStorage.getItem('reminderUserId')),
+    name: new FormControl('', [Validators.required]),
+    phoneNumber: new FormControl('', [Validators.required]),
+    notification: new FormControl(0, [Validators.required]),
+    timeZone: new FormControl('', [Validators.required]),
+    time: new FormControl(this.currentTime, [Validators.required]),
+    recepient: new FormControl('', [Validators.required])
+  })
+
   constructor() { }
 
   ngOnInit() {
@@ -44,5 +46,8 @@ export class EventFormComponent  implements OnInit {
     this.latestForm = this.eventForm
     this.latestForm.value.time = this.myDate
     this.onSubmitForm.emit(this.latestForm.value)
+  }
+  clickMe(){
+    console.log(this.eventForm)
   }
 }
