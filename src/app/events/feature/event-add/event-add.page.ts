@@ -38,7 +38,6 @@ export class EventAddPage implements OnInit {
     })
   }
   getTimeZones() {
-    // console.log(momentz.tz.names())
     return momentz.tz.names()
   };
 }
