@@ -18,4 +18,8 @@ export const routes: Routes = [
     path: 'add-event',
     loadComponent: () => import('../event-add/event-add.page').then( m => m.EventAddPage)
   },
+  {
+    path: 'view-event/:id',
+    loadComponent: () => import('../event-detail/event-detail.page').then( m => m.EventDetailPage)
+  },
 ];
