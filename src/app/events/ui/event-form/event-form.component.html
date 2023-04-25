@@ -1,0 +1,39 @@
+<form action="" [formGroup]="eventForm" (ngSubmit)="onSubmit()">
+  <ion-input type="text" label="Name of sender:" labelPlacement="stacked" shape="" fill="solid"[counter]="true" maxlength="100"
+    errorText="Please enter a valid name" formControlName="name"></ion-input>
+  <ion-input type="phone" label="Phone:" labelPlacement="stacked" shape="" fill="solid"[counter]="true" maxlength="100"
+    errorText="Please enter a valid phone number" formControlName="phoneNumber"></ion-input>
+  <!-- <ion-input type="number" label="Notification:" labelPlacement="stacked" shape="" fill="solid"[counter]="true" maxlength="100"
+    errorText="Please enter a valid notification" formControlName="notification"></ion-input> -->
+    <ion-select fill="outline" shape="" label="Notification search:" labelPlacement="stacked" formControlName="notification">
+      <ion-select-option [value]="1">{{'1 minute'}}</ion-select-option>
+      <ion-select-option [value]="15">{{'15 minutes'}}</ion-select-option>
+      <ion-select-option [value]="20">{{'20 minutes'}}</ion-select-option>
+      <ion-select-option [value]="30">{{'30 minutes'}}</ion-select-option>
+    </ion-select>
+    <ion-select fill="outline" shape="" label="Time Zone:" labelPlacement="stacked" formControlName="timeZone">
+      <ion-select-option [value]="tz" *ngFor="let tz of allTz">{{tz}}</ion-select-option>
+    </ion-select>
+
+  <!-- <ion-input type="date" label="Birthday:" labelPlacement="stacked" shape="" fill="solid"[counter]="true" maxlength="100"
+    errorText="Please enter a valid time" formControlName="time"></ion-input> -->
+  <ion-item>
+  <ion-datetime-button datetime="datetime"></ion-datetime-button>
+    <ion-modal [keepContentsMounted]="true">
+      <ng-template>
+        <ion-datetime id="datetime" #datetime presentation="date-time" (ionChange)="changeDate(datetime.value)"></ion-datetime>
+      </ng-template>
+    </ion-modal>
+  </ion-item>
+  <ion-input type="text" label="Recepient:" labelPlacement="stacked" shape="" fill="solid"[counter]="true" maxlength="100"
+    errorText="Please enter a recepient" formControlName="recepient"></ion-input>
+    <ion-button expand="full" type="submit" [disabled]="!eventForm.valid">{{formName}}</ion-button>
+</form>
+
+
+<!--
+      option(selected=appointment.notification == '', value='') Select a time
+      option(selected=appointment.notification == '15', value='15') 15 Minutes
+      option(selected=appointment.notification == '30', value='30') 30 Minutes
+      option(selected=appointment.notification == '45', value='45') 45 Minutes
+      option(selected=appointment.notification == '60', value='60') 60 Minutes -->

@@ -1,0 +1,9 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>login</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <app-auth-form (onSubmitForm)="loginUser($event)" [formName]="formName"></app-auth-form>
+</ion-content>
