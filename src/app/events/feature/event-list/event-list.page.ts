@@ -5,6 +5,7 @@ import { IonicModule } from '@ionic/angular';
 import { EventsService } from '../../data-access/events.service';
 import { EventForm } from 'src/app/models/event.interface';
 import { Router } from '@angular/router';
+import { EventsStoreService } from '../../data-access/events-store.service';
 
 @Component({
   selector: 'app-event-list',
@@ -17,23 +18,27 @@ export class EventListPage implements OnInit {
   allEvents: EventForm[] = [];
   upComingEvents: EventForm[] = [];
   pastEvents: EventForm[] = [];
-  constructor(private events: EventsService, private router: Router) { }
+  constructor(private eventsService: EventsService, public eventStoreService: EventsStoreService, private router: Router) { }
 
   ngOnInit() {
-    this.events.getEvents().subscribe(res=>{
-      console.log(res)
-      this.allEvents = res
-      this.allEvents.forEach(event => {
-        if(new Date(event.time).getTime()  < new Date().getTime()){
-          this.pastEvents.push(event)
-        }else{
-          this.upComingEvents.push(event)
-        }
-      })
-    })
+    this.eventStoreService.getEvents()
+    // this.eventsService.events$.subscribe(res=>{
+    //   console.log(res)
+    //   this.allEvents = res
+    //   this.allEvents.forEach(event => {
+    //     if(new Date(event.time).getTime()  < new Date().getTime()){
+    //       this.pastEvents.push(event)
+    //     }else{
+    //       this.upComingEvents.push(event)
+    //     }
+    //   })
+    // })
   }
   viewEvent(id:string){
     // Get id of event from route
     this.router.navigate(['event', 'view-event', id])
+  }
+  addEvent(){
+    this.router.navigate(['event', 'add-event'])
   }
 }

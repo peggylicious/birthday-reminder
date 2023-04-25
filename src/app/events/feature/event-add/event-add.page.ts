@@ -7,6 +7,7 @@ import { EventForm } from 'src/app/models/event.interface';
 import { EventFormComponent } from '../../ui/event-form/event-form.component';
 import * as moment from 'moment';
 import * as momentz from 'moment-timezone';
+import { EventsStoreService } from '../../data-access/events-store.service';
 @Component({
   selector: 'app-event-add',
   templateUrl: './event-add.page.html',
@@ -19,7 +20,7 @@ export class EventAddPage implements OnInit {
   allTz: string[] | undefined;
   // alarmTimes:string[] | undefined = ['15 minutes']
   formData:any;
-  constructor( private eventService: EventsService) { }
+  constructor( private eventsStoreService: EventsStoreService) { }
 
   ngOnInit() {
     this.allTz = this.getTimeZones()
@@ -33,9 +34,7 @@ export class EventAddPage implements OnInit {
     formData.time = datePipe.transform(new Date(formData.time.split(' ')[0]), 'MM-dd-YYYY hh:mma')!
     console.log(formData.time)
 
-    this.eventService.createEvent(formData).subscribe(res=>{
-      console.log(res)
-    })
+    this.eventsStoreService.createEvent(formData)
   }
   getTimeZones() {
     return momentz.tz.names()

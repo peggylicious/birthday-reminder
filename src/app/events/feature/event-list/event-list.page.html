@@ -5,8 +5,9 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
+  <ion-button (click)="addEvent()">Add Event</ion-button>
   <h2>Upcoming Events</h2>
-  <ion-card *ngFor="let allEvent of upComingEvents" (click)="viewEvent(allEvent._id)">
+  <ion-card *ngFor="let allEvent of eventStoreService.upcomingEvents$ | async" (click)="viewEvent(allEvent._id)">
     <ion-card-header>
       <ion-card-title>{{allEvent.recepient}}</ion-card-title>
       <ion-card-subtitle>{{allEvent.time}}</ion-card-subtitle>
@@ -17,7 +18,7 @@
     </ion-card-content>
   </ion-card>
   <h2>Past Events</h2>
-  <ion-card *ngFor="let allEvent of pastEvents" (click)="viewEvent(allEvent._id)">
+  <ion-card *ngFor="let allEvent of eventStoreService.pastEvents$ | async" (click)="viewEvent(allEvent._id)">
     <ion-card-header>
       <ion-card-title>{{allEvent.recepient}}</ion-card-title>
       <ion-card-subtitle>{{allEvent.time}}</ion-card-subtitle>
