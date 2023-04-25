@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { BehaviorSubject, map } from 'rxjs';
 import { EventForm } from 'src/app/models/event.interface';
 import { EventsService } from './events.service';
@@ -8,7 +9,7 @@ import { EventsService } from './events.service';
 })
 export class EventsStoreService {
 
-  constructor(private eventService: EventsService) { }
+  constructor(private eventService: EventsService, private router: Router) { }
   private readonly _events = new BehaviorSubject<EventForm[]>([])
   readonly events$ = this._events.asObservable();
   readonly pastEvents$ = this.events$.pipe(map(res=> res.filter(event => new Date(event.time).getTime()  < new Date().getTime())))
@@ -27,6 +28,7 @@ export class EventsStoreService {
   createEvent(event: EventForm){
     this.eventService.createEvent(event).subscribe(res => {
       this.events = [...this.events, event]
+      this.router.navigate(['event', 'event-list'])
     })
   }
 }
