@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 import { EventsService } from '../../data-access/events.service';
 import { EventForm } from 'src/app/models/event.interface';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-event-list',
@@ -16,7 +17,7 @@ export class EventListPage implements OnInit {
   allEvents: EventForm[] = [];
   upComingEvents: EventForm[] = [];
   pastEvents: EventForm[] = [];
-  constructor(private events: EventsService) { }
+  constructor(private events: EventsService, private router: Router) { }
 
   ngOnInit() {
     this.events.getEvents().subscribe(res=>{
@@ -31,5 +32,8 @@ export class EventListPage implements OnInit {
       })
     })
   }
-
+  viewEvent(id:string){
+    // Get id of event from route
+    this.router.navigate(['event', 'view-event', id])
+  }
 }
