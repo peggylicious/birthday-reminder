@@ -1,4 +1,5 @@
 import { Routes } from '@angular/router';
+import { EventsResolverResolver } from '../../utils/events-resolver.resolver';
 
 export const routes: Routes = [
   // {
@@ -12,7 +13,10 @@ export const routes: Routes = [
   // },
   {
     path: 'event-list',
-    loadComponent: () => import('../event-list/event-list.page').then( m => m.EventListPage)
+    loadComponent: () => import('../event-list/event-list.page').then( m => m.EventListPage),
+    resolve: {
+      eventsResolver: EventsResolverResolver
+    },
   },
   {
     path: 'add-event',
