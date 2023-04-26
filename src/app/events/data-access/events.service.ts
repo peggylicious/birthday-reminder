@@ -22,6 +22,9 @@ export class EventsService {
   //   console.log("Creating event ...")
   //   return this.http.get<any>(`${this.baseUrl}/all`)
   // }
+  deleteEvent(id: string){
+    return this.http.delete<any>(`${this.baseUrl}/delete/${id}`)
+  }
   deleteMultipleEvents(){
     return this.http.delete<any>(`${this.baseUrl}/delete/all`)
   }

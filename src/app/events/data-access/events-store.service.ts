@@ -40,7 +40,16 @@ export class EventsStoreService {
   createEvent(event: EventForm){
     this.eventService.createEvent(event).subscribe(res => {
       this.events = [...this.events, event]
+      console.log(this.events)
       this.router.navigate(['event', 'event-list'])
+    })
+  }
+  deleteEvent(id: string){
+    this.eventService.deleteEvent(id).subscribe(res=> {
+      console.log("Successfully deleted ", id)
+      console.log(res)
+      this.router.navigate(['event', 'event-list'])
+      this.events = this.events.filter(event => event._id !== id)
     })
   }
 }

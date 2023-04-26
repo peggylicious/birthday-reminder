@@ -10,4 +10,6 @@
       <ion-title size="large">event-detail</ion-title>
     </ion-toolbar>
   </ion-header>
+  <ion-button color="warning" (click)="deleteEvent()">Delete</ion-button>
 </ion-content>
+<app-event-modal [isModalOpen]="openModal" (modalIsOpen)="onDeleteEvent($event)"></app-event-modal>

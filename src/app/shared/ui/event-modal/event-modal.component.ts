@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 
@@ -12,7 +12,8 @@ import { IonicModule } from '@ionic/angular';
 
 })
 export class EventModalComponent  implements OnInit {
-  isModalOpen = false;
+  @Input() isModalOpen: any;
+  @Output() modalIsOpen: EventEmitter<boolean> = new EventEmitter();
 
 
   constructor() { }
@@ -20,5 +21,9 @@ export class EventModalComponent  implements OnInit {
   ngOnInit() {}
   setOpen(isOpen: boolean) {
     this.isModalOpen = isOpen;
+  }
+  closeModal(){
+    // this.isModalOpen = false;
+    this.modalIsOpen.emit(false)
   }
 }
