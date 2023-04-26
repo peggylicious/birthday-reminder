@@ -14,7 +14,7 @@ export class EventsStoreService {
   readonly events$ = this._events.asObservable();
   readonly pastEvents$ = this.events$.pipe(map(res=> res.filter(event => new Date(event.time).getTime()  < new Date().getTime())))
   readonly upcomingEvents$ = this.events$.pipe(map(res=> res.filter(event => new Date(event.time).getTime()  > new Date().getTime())))
-
+  selectedEvent: any;
   get events(): EventForm[] {
     return this._events.getValue()
   }
@@ -24,6 +24,18 @@ export class EventsStoreService {
 
   getEvents(){
     this.eventService.getEvents().subscribe(res=> this.events = res)
+  }
+  getEventById(id: string){
+
+    if(this.events.length === 0){
+      this.eventService.getEvents().subscribe(res=> {
+        this.events = res
+        this.selectedEvent = this.events.filter(res => id === res._id)
+      })
+    }else{
+      this.selectedEvent = this.events.filter(res => id === res._id)
+      console.log(this.selectedEvent)
+    }
   }
   createEvent(event: EventForm){
     this.eventService.createEvent(event).subscribe(res => {
