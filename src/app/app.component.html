@@ -1,14 +1,21 @@
 <ion-app>
   <ion-header [translucent]="true">
     <ion-toolbar>
-      <ion-title>Birthday Reminder</ion-title>
+      <ion-title>
+        <button (click)="goToHome()">Birthday Reminder</button>
+      </ion-title>
+
       <!-- <ion-button id="click-trigger">Left-Click Me</ion-button> -->
       <!-- <ion-popover trigger="click-trigger" triggerAction="click">
         <ng-template>
           <ion-content class="ion-padding">Hello World!</ion-content>
         </ng-template>
       </ion-popover> -->
-      <ion-button (click)="presentPopover($event)" slot="end" *ngIf="showLogOutButton">A</ion-button>
+      <ion-buttons slot="end">
+      <ion-button (click)="presentPopover($event)" slot="end" *ngIf="showLoggedOutButton" color="primary">Logout</ion-button>
+        <ion-button (click)="login()" *ngIf="showLogInButton">Login</ion-button>
+        <ion-button (click)="register()" *ngIf="showRegisterButton">Register</ion-button>
+      </ion-buttons>
       <ion-popover #popover [isOpen]="isOpen" (didDismiss)="isOpen = false">
         <ng-template>
           <ion-content class="ion-padding">

@@ -29,6 +29,7 @@ export class AuthService {
   }
   logOut(){
     localStorage.removeItem("access_token")
-    this.router.navigate([''])
+    console.log(localStorage.getItem("access_token"))
+    this.router.navigate(['/home'])
   }
 }
