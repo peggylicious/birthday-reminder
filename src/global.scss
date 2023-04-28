@@ -41,3 +41,28 @@ select:-webkit-autofill:focus {
   box-shadow: 0 0 0px 1000px transparent inset;
   transition: background-color 5000s ease-in-out 0s;
 }
+// :root{
+//   // Font Size
+//   --br-title-size: 24px;
+//   --br-paragraph-size: 14px;
+//   --br-small-size: 11px;
+//   --br-x-small-size: 9px;
+
+//   // Font-weight
+//   --br-weight-bold: 700;
+//   --br-weight-semibold: 600;
+//   --br-link-regular: 400;
+
+//   // Colors
+//   --br-bold-blue: #5F33E1;
+//   --br-light-blue: rgba(95, 51, 225, 0.4);
+//   --br-color-dark: #24252C;
+//   --br-color-light: #6E6A7C;
+
+//   // --button-colors
+//   --button-bg-light: #EDE8FF;
+//   --br-button-text-light: #5F33E1;
+// }
+*{
+  font-family: 'Lexend Deca', sans-serif !important;
+}

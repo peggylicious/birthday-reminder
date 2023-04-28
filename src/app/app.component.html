@@ -11,11 +11,11 @@
           <ion-content class="ion-padding">Hello World!</ion-content>
         </ng-template>
       </ion-popover> -->
-      <ion-buttons slot="end">
-      <ion-button (click)="presentPopover($event)" slot="end" *ngIf="showLoggedOutButton" color="primary">Logout</ion-button>
-        <ion-button (click)="login()" *ngIf="showLogInButton">Login</ion-button>
-        <ion-button (click)="register()" *ngIf="showRegisterButton">Register</ion-button>
-      </ion-buttons>
+      <!-- <ion-buttons slot="end"> -->
+        <ion-button (click)="presentPopover($event)" slot="end" *ngIf="showLoggedOutButton" color="danger">Logout</ion-button>
+        <ion-button (click)="login()" slot="end" *ngIf="showLogInButton">Login</ion-button>
+        <ion-button (click)="register()" slot="end" *ngIf="showRegisterButton">Register</ion-button>
+      <!-- </ion-buttons> -->
       <ion-popover #popover [isOpen]="isOpen" (didDismiss)="isOpen = false">
         <ng-template>
           <ion-content class="ion-padding">
@@ -25,5 +25,7 @@
       </ion-popover>
     </ion-toolbar>
   </ion-header>
-  <ion-router-outlet></ion-router-outlet>
+  <div class="root-container">
+    <ion-router-outlet></ion-router-outlet>
+  </div>
 </ion-app>

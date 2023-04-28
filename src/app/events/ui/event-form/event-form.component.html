@@ -18,7 +18,7 @@
   <!-- <ion-input type="date" label="Birthday:" labelPlacement="stacked" shape="" fill="solid"[counter]="true" maxlength="100"
     errorText="Please enter a valid time" formControlName="time"></ion-input> -->
   <ion-item>
-  <ion-datetime-button datetime="datetime"></ion-datetime-button>
+    <ion-datetime-button datetime="datetime"></ion-datetime-button>
     <ion-modal [keepContentsMounted]="true">
       <ng-template>
         <ion-datetime id="datetime" #datetime presentation="date-time" (ionChange)="changeDate(datetime.value)"></ion-datetime>
