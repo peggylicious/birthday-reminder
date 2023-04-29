@@ -7,7 +7,8 @@ import { loggedInUser, User } from 'src/app/models/auth.interface';
   providedIn: 'root'
 })
 export class AuthService {
-  baseUrl = "http://localhost:3000/user"
+  // baseUrl = "http://localhost:3000/user"
+  baseUrl = "https://birthday-reminder-server-rah7.onrender.com/user"
   // isLoggedIn: boolean = false;
   constructor( private http: HttpClient, private router: Router) { }
   register(data: User){

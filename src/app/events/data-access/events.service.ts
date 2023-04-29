@@ -6,7 +6,8 @@ import { BehaviorSubject, Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class EventsService {
-  baseUrl = "http://localhost:3000/reminder"
+  // baseUrl = "http://localhost:3000/reminder"
+  baseUrl = "https://birthday-reminder-server-rah7.onrender.com/reminder"
 
 
   constructor(private http: HttpClient) { }

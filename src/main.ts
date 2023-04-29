@@ -23,7 +23,7 @@ bootstrapApplication(AppComponent, {
         tokenGetter: function tokenGetter() {
           return localStorage.getItem("access_token");
         },
-        allowedDomains: ["example.com", "localhost:3000"],
+        allowedDomains: ["example.com", "localhost:3000", 'birthday-reminder-server-rah7.onrender.com'],
         disallowedRoutes: ["http://example.com/examplebadroute/"],
       },
     })),
