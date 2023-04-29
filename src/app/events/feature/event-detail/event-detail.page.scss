@@ -1,0 +1,20 @@
+.detail{
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.detail p{
+  margin-left: 10px;
+}
+p, h3{
+  margin: 0;
+}
+ion-button{
+  --background: var(--br-bold-blue);
+  --color: var(--br-white);
+  font-size: var(--br-small-size);
+  font-weight: var(--br-weight-semibold);
+  text-transform: capitalize;
+  --border-radius: 14px !important;
+  // width: calc(100% - 44px);
+}

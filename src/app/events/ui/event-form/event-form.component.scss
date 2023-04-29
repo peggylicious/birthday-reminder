@@ -1,0 +1,18 @@
+ion-input, ion-select, ion-item{
+  margin-bottom: 20px;
+  --background: #FFFFFF !important;
+  box-shadow: 0px 4px 32px rgba(0, 0, 0, 0.04);
+  border-radius: 15px;
+  margin-bottom: 24px;
+  --border-width: 0;
+}
+ion-button{
+  --background: var(--br-bold-blue);
+  --color: var(--br-white);
+  font-size: var(--br-button-font-size-lg);
+  font-weight: var(--br-weight-semibold);
+  text-transform: capitalize;
+  --border-radius: 14px !important;
+  // width: calc(100% - 44px);
+  width: 100%;
+}

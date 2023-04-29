@@ -6,7 +6,7 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
+<ion-content [fullscreen]="true" class="page-wrapper home-wrapper">
   <ion-header collapse="condense">
     <ion-toolbar>
       <ion-title size="large">Blank</ion-title>
@@ -14,7 +14,13 @@
   </ion-header>
 
   <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+    <strong>Birthday Reminder App </strong>
+    <p>This app is designed to ensure you never forget the birthday of a loved one.</p>
+    <!-- <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p> -->
+    <!-- <div> -->
+    <ion-button shape="round" class="get-started" (click)="register()" *ngIf="showBtn">Get Started <ion-icon src="../../assets/arrow_left.svg" slot="end"></ion-icon></ion-button>
+    <ion-button shape="round" class="get-started" (click)="viewBirthdays()" *ngIf="!showBtn">View Birthdays <ion-icon src="../../assets/arrow_left.svg" slot="end"></ion-icon></ion-button>
+
+    <!-- </div> -->
   </div>
 </ion-content>

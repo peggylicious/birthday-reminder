@@ -29,5 +29,8 @@ export class LoginPage implements OnInit {
       this.router.navigate(["event/event-list"]);
     })
   }
+  register(){
+    this.router.navigate(['register'])
 
+  }
 }

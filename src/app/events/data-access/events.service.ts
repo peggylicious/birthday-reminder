@@ -6,7 +6,8 @@ import { BehaviorSubject, Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class EventsService {
-  baseUrl = "http://localhost:3000/reminder"
+  // baseUrl = "http://localhost:3000/reminder"
+  baseUrl = "https://birthday-reminder-server-rah7.onrender.com/reminder"
 
 
   constructor(private http: HttpClient) { }
@@ -22,6 +23,9 @@ export class EventsService {
   //   console.log("Creating event ...")
   //   return this.http.get<any>(`${this.baseUrl}/all`)
   // }
+  deleteEvent(id: string){
+    return this.http.delete<any>(`${this.baseUrl}/delete/${id}`)
+  }
   deleteMultipleEvents(){
     return this.http.delete<any>(`${this.baseUrl}/delete/all`)
   }
