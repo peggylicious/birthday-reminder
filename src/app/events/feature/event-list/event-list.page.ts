@@ -30,4 +30,7 @@ export class EventListPage implements OnInit {
   addEvent(){
     this.router.navigate(['event', 'add-event'])
   }
+  gotoHome(){
+    this.router.navigate(['home'])
+  }
 }

@@ -11,6 +11,7 @@
     </ion-toolbar>
   </ion-header>
   <div class="detain-container">
+    <ion-button (click)="gotoDetails()"><ion-icon name="arrow-back-outline"></ion-icon></ion-button>
     <div class="detail">
       <h3>Name:</h3>
       <p>{{selectedEvent[0].recepient}}</p>
@@ -21,7 +22,7 @@
     </div>
     <div class="detail">
       <h3>Time:</h3>
-      <p>{{selectedEvent[0].time | date:'shortTime'}}</p>
+      <p>{{selectedEvent[0].time | date:'shortTime':'+0000'}}</p>
     </div>
   </div>
   <ion-button color="warning" (click)="deleteEvent()">Delete</ion-button>

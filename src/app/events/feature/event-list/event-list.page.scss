@@ -42,7 +42,7 @@ ion-card-title{
 .past-event{
   margin-top: 50px;
 }
-.add-btn{
+.add-btn, .goto{
   --background: var(--br-bold-blue);
   --color: var(--br-white);
   font-size: var(--br-small-size);
@@ -53,5 +53,5 @@ ion-card-title{
 }
 .br-align-right{
   display: flex;
-  justify-content: right;
+  justify-content: space-between;
 }

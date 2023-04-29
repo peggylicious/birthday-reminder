@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { EventForm } from 'src/app/models/event.interface';
 import { EventsStoreService } from '../../data-access/events-store.service';
 import { EventModalComponent } from 'src/app/shared/ui/event-modal/event-modal.component';
@@ -16,7 +16,7 @@ import { EventModalComponent } from 'src/app/shared/ui/event-modal/event-modal.c
 })
 export class EventDetailPage implements OnInit {
 
-  constructor(private route: ActivatedRoute, private eventsStoreService: EventsStoreService) { }
+  constructor(private route: ActivatedRoute, private eventsStoreService: EventsStoreService, private router: Router) { }
   routeId: any;
   selectedEvent!: EventForm[];
   openModal: boolean = false;
@@ -42,5 +42,8 @@ export class EventDetailPage implements OnInit {
     this.eventsStoreService.deleteEvent(this.routeId)
     }
     this.openModal = event.status
+  }
+  gotoDetails(){
+    this.router.navigate(['event', 'event-list'])
   }
 }
