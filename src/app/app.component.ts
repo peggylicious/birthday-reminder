@@ -27,51 +27,7 @@ export class AppComponent {
 
     return anim
   }
-  constructor(private authService: AuthService, private router: Router, private animationCtrl: AnimationController, private eventsStoreService: EventsStoreService ) {
-
-    router.events.subscribe(res=> {
-      if(res instanceof NavigationEnd){
-        console.log(this.isLoggedIn)
-
-        if (((res.url === '/home') && !this.isLoggedIn) || ((res.url === '/') && !this.isLoggedIn)){
-          console.log("Show button")
-          this.showLogInButton = true
-          this.showRegisterButton = true
-          console.log(this.showLogInButton)
-          console.log(this.showRegisterButton)
-          this.showLoggedOutButton = false
-          console.log("Home or / passed")
-          // return 'a'
-        }
-        if (((res.url === '/login') && !this.isLoggedIn)){
-          console.log(res.url)
-          this.showLogInButton = false
-          this.showRegisterButton = true
-          this.showLoggedOutButton = false
-          console.log(this.showLogInButton)
-          console.log("Login passed")
-
-          // return 'a'
-        }
-        if (((res.url === '/register') && !this.isLoggedIn)){
-          console.log(res.url)
-          this.showLogInButton = true
-          this.showRegisterButton = false
-          this.showLoggedOutButton = false
-          console.log("Register passed")
-          // return 'a'
-        }
-        if(!this.urls.includes(res.url)){
-          this.showLogInButton = false
-          this.showRegisterButton = false
-          this.showLoggedOutButton = true
-          console.log("Includes one of mosts")
-          // return 'a'
-        }
-        console.log(this.showLogInButton, this.showRegisterButton, this.showLoggedOutButton)
-      }
-    })
-  }
+  constructor(private authService: AuthService, private router: Router, private animationCtrl: AnimationController, private eventsStoreService: EventsStoreService ) {}
 
 ngOnInit(): void {
   //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
