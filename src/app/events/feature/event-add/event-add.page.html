@@ -4,6 +4,6 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
+<ion-content [fullscreen]="true" class="page-wrapper">
   <app-event-form [formName]="formName" [allTz]="allTz" (onSubmitForm)="createEvent($event)"></app-event-form>
 </ion-content>

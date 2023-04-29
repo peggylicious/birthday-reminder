@@ -29,4 +29,7 @@ export class RegisterPage implements OnInit {
       this.router.navigate(['login'])
     })
   }
+  login(){
+    this.router.navigate(['login'])
+  }
 }

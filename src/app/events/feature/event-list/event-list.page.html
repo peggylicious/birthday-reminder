@@ -4,28 +4,35 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-button (click)="addEvent()">Add Event</ion-button>
+<ion-content [fullscreen]="true" class="page-wrapper">
+  <div class="br-align-right">
+    <ion-button (click)="addEvent()" class="add-btn">Add Event</ion-button>
+  </div>
   <h2>Upcoming Events</h2>
+  <p class="event-error" *ngIf="!(eventStoreService.upcomingEvents$ | async)?.length">There are no upcoming events at this time</p>
   <ion-card *ngFor="let allEvent of eventStoreService.upcomingEvents$ | async" (click)="viewEvent(allEvent._id)">
+    <ion-icon src="assets/calendar.svg"></ion-icon>
     <ion-card-header>
+      <ion-card-subtitle><span>{{allEvent.time | date}}</span><span>{{allEvent.time | date: 'shortTime'}}</span></ion-card-subtitle>
       <ion-card-title>{{allEvent.recepient}}</ion-card-title>
-      <ion-card-subtitle>{{allEvent.time}}</ion-card-subtitle>
     </ion-card-header>
 
     <ion-card-content>
-      {{allEvent.created_by}}
+      <!-- {{allEvent.created_by}} -->
+      <ion-icon src="assets/Arrow - Down 3.svg"></ion-icon>
     </ion-card-content>
   </ion-card>
-  <h2>Past Events</h2>
+  <h2 class="past-event">Past Events</h2>
   <ion-card *ngFor="let allEvent of eventStoreService.pastEvents$ | async" (click)="viewEvent(allEvent._id)">
+    <ion-icon src="assets/calendar.svg" size="large"></ion-icon>
     <ion-card-header>
+      <ion-card-subtitle><span>{{allEvent.time | date}}</span><span>{{allEvent.time | date: 'shortTime'}}</span></ion-card-subtitle>
       <ion-card-title>{{allEvent.recepient}}</ion-card-title>
-      <ion-card-subtitle>{{allEvent.time}}</ion-card-subtitle>
     </ion-card-header>
 
     <ion-card-content>
-      {{allEvent.created_by}}
+      <!-- {{allEvent.created_by}} -->
+      <ion-icon src="assets/Arrow - Down 3.svg"></ion-icon>
     </ion-card-content>
   </ion-card>
 </ion-content>

@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
+import { EventForm } from 'src/app/models/event.interface';
 
 @Component({
   selector: 'app-event-modal',
@@ -13,17 +14,22 @@ import { IonicModule } from '@ionic/angular';
 })
 export class EventModalComponent  implements OnInit {
   @Input() isModalOpen: any;
-  @Output() modalIsOpen: EventEmitter<boolean> = new EventEmitter();
+  @Input() selectedEvent: any = {}
+  @Output() modalIsOpen: EventEmitter<{status:boolean, save:boolean}> = new EventEmitter();
 
 
   constructor() { }
 
   ngOnInit() {}
-  setOpen(isOpen: boolean) {
-    this.isModalOpen = isOpen;
+  setOpen(state: {status:boolean, save: boolean}) {
+    this.isModalOpen = state.status;
+  }
+  confirmModal(){
+    // this.isModalOpen = false;
+    this.modalIsOpen.emit({status:false, save: true})
   }
   closeModal(){
-    // this.isModalOpen = false;
-    this.modalIsOpen.emit(false)
+    this.modalIsOpen.emit({status:false, save: false})
+
   }
 }

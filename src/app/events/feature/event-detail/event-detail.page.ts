@@ -18,7 +18,7 @@ export class EventDetailPage implements OnInit {
 
   constructor(private route: ActivatedRoute, private eventsStoreService: EventsStoreService) { }
   routeId: any;
-  selectedEvent!: EventForm;
+  selectedEvent!: EventForm[];
   openModal: boolean = false;
   ngOnInit() {
     this.route.paramMap.subscribe(params => {
@@ -27,17 +27,20 @@ export class EventDetailPage implements OnInit {
       this.getEventById(this.routeId)
 
     });
-
   }
 
   getEventById(id: string){
     this.eventsStoreService.getEventById(id)
+    this.selectedEvent = this.eventsStoreService.selectedEvent;
+    console.log(this.eventsStoreService.selectedEvent)
   }
   deleteEvent(){
     this.openModal = true
-    this.eventsStoreService.deleteEvent(this.routeId)
   }
   onDeleteEvent(event:any){
-    this.openModal = event
+    if(event.save){
+    this.eventsStoreService.deleteEvent(this.routeId)
+    }
+    this.openModal = event.status
   }
 }

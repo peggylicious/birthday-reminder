@@ -6,4 +6,15 @@
   padding: 0 22px;
   width: 100%;
   height: 100%;
+  background-image: url(../assets/all_page_bg.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.more{
+  --background: #fff;
+    background: transparent;
+    --box-shadow: none;
+}
+.more ion-icon{
+  color: var(--br-color-dark)
 }

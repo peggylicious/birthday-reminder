@@ -1,7 +1,7 @@
 <form action="" [formGroup]="eventForm" (ngSubmit)="onSubmit()">
-  <ion-input type="text" label="Name of sender:" labelPlacement="stacked" shape="" fill="solid"[counter]="true" maxlength="100"
+  <ion-input type="text" label="Name of sender:" labelPlacement="stacked" shape="" fill="solid"[counter]="true"
     errorText="Please enter a valid name" formControlName="name"></ion-input>
-  <ion-input type="phone" label="Phone:" labelPlacement="stacked" shape="" fill="solid"[counter]="true" maxlength="100"
+  <ion-input type="phone" label="Phone:" labelPlacement="stacked" shape="" fill="solid"[counter]="true"
     errorText="Please enter a valid phone number" formControlName="phoneNumber"></ion-input>
   <!-- <ion-input type="number" label="Notification:" labelPlacement="stacked" shape="" fill="solid"[counter]="true" maxlength="100"
     errorText="Please enter a valid notification" formControlName="notification"></ion-input> -->
@@ -25,9 +25,9 @@
       </ng-template>
     </ion-modal>
   </ion-item>
-  <ion-input type="text" label="Recepient:" labelPlacement="stacked" shape="" fill="solid"[counter]="true" maxlength="100"
+  <ion-input type="text" label="Recepient:" labelPlacement="stacked" shape="" fill="solid"[counter]="true"
     errorText="Please enter a recepient" formControlName="recepient"></ion-input>
-    <ion-button expand="full" type="submit" [disabled]="!eventForm.valid">{{formName}}</ion-button>
+    <ion-button type="submit" [disabled]="!eventForm.valid">{{formName}}</ion-button>
 </form>
 
 

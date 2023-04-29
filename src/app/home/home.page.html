@@ -6,7 +6,7 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true" class="home-wrapper">
+<ion-content [fullscreen]="true" class="page-wrapper home-wrapper">
   <ion-header collapse="condense">
     <ion-toolbar>
       <ion-title size="large">Blank</ion-title>
@@ -18,7 +18,7 @@
     <p>This app is designed to ensure you never forget the birthday of a loved one.</p>
     <!-- <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p> -->
     <!-- <div> -->
-    <ion-button shape="round" class="get-started">Get Started <ion-icon src="../../assets/arrow_left.svg" slot="end"></ion-icon></ion-button>
+    <ion-button shape="round" class="get-started" (click)="register()">Get Started <ion-icon src="../../assets/arrow_left.svg" slot="end"></ion-icon></ion-button>
 
     <!-- </div> -->
   </div>

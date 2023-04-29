@@ -66,3 +66,9 @@ select:-webkit-autofill:focus {
 *{
   font-family: 'Lexend Deca', sans-serif !important;
 }
+.page-wrapper{
+  --padding-end: 16px;
+  --padding-start: 16px;
+  --padding-top: 16px;
+  --background: transparent;
+}
