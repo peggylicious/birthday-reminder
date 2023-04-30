@@ -72,3 +72,18 @@ select:-webkit-autofill:focus {
   --padding-top: 16px;
   --background: transparent;
 }
+*{
+  color: var(--br-color-dark);
+}
+ion-button{
+  color: #fff;
+  --color: #fff;
+}
+ion-button ion-icon{
+  color: #fff;
+  --color: #fff;
+}
+ion-header{
+  --background: #fff;
+  background: #fff;
+}

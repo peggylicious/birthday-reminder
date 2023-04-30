@@ -7,3 +7,9 @@ ion-button{
   --border-radius: 14px !important;
   // width: calc(100% - 44px);
 }
+ion-modal ion-content{
+  --background: #fff;
+  background: #fff;
+  // background: red;
+  //   --background: red;
+}
