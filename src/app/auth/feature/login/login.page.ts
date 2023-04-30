@@ -27,6 +27,9 @@ export class LoginPage implements OnInit {
       localStorage.setItem('reminderUserId', res.loggedUserId)
       console.log(res)
       this.router.navigate(["event/event-list"]);
+    }, err=>{
+      throw err
+      console.log("My error", err)
     })
   }
   register(){
