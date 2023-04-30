@@ -1,5 +1,5 @@
 <ion-app>
-  <ion-header [translucent]="true">
+  <ion-header [translucent]="false">
     <ion-toolbar>
       <ion-title>
         <button (click)="goToHome()">Birthday Reminder</button>
@@ -20,7 +20,7 @@
       <!-- </ion-buttons> -->
       <ion-popover #popover [isOpen]="isOpen" (didDismiss)="isOpen = false">
         <ng-template>
-          <ion-content class="ion-padding">
+          <ion-content class="ion-padding" [fullscreen]="true">
             <ion-button (click)="logOut()">logout</ion-button>
           </ion-content>
         </ng-template>

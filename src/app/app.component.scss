@@ -2,6 +2,10 @@
 //   display: flex;
 //   justify-content: space-between;
 // }
+ion-header{
+  --background: #fff;
+  background: #fff;
+}
 .root-container{
   padding: 0 22px;
   width: 100%;
@@ -17,4 +21,18 @@
 }
 .more ion-icon{
   color: var(--br-color-dark)
+}
+ion-toolbar{
+  --background: #fff;
+  background: #fff;
+}
+ion-header ion-title button{
+background: #fff;
+}
+
+ion-modal ion-content{
+  --background: #fff;
+  background: #fff;
+  background: red;
+    --background: red;
 }
