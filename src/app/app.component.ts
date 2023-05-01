@@ -5,12 +5,13 @@ import { CommonModule } from '@angular/common';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { EventsStoreService } from './events/data-access/events-store.service';
 import { Observable } from 'rxjs';
+import { LoaderComponent } from './shared/feature/loader/loader.component';
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
   styleUrls: ['app.component.scss'],
   standalone: true,
-  imports: [IonicModule, CommonModule],
+  imports: [IonicModule, CommonModule, LoaderComponent],
 })
 export class AppComponent {
   @ViewChild('popover') popover:any;
