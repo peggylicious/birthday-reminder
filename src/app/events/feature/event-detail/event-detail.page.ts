@@ -18,7 +18,7 @@ export class EventDetailPage implements OnInit {
 
   constructor(private route: ActivatedRoute, private eventsStoreService: EventsStoreService, private router: Router) { }
   routeId: any;
-  selectedEvent!: EventForm[];
+  selectedEvent!: EventForm[] | null;
   openModal: boolean = false;
   ngOnInit() {
     this.route.paramMap.subscribe(params => {

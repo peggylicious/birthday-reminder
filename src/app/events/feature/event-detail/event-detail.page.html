@@ -1,28 +1,28 @@
-<ion-header [translucent]="true">
+<!-- <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>event-detail</ion-title>
   </ion-toolbar>
-</ion-header>
+</ion-header> -->
 
 <ion-content [fullscreen]="true" class="page-wrapper">
-  <ion-header collapse="condense">
+  <!-- <ion-header collapse="condense">
     <ion-toolbar>
       <ion-title size="large">event-detail</ion-title>
     </ion-toolbar>
-  </ion-header>
+  </ion-header> -->
   <div class="detain-container">
     <ion-button (click)="gotoDetails()"><ion-icon name="arrow-back-outline"></ion-icon></ion-button>
     <div class="detail">
       <h3>Name:</h3>
-      <p>{{selectedEvent[0].recepient}}</p>
+      <p>{{selectedEvent?.[0]?.recepient}}</p>
     </div>
     <div class="detail">
       <h3>Date:</h3>
-      <p>{{selectedEvent[0].time | date}}</p>
+      <p>{{selectedEvent?.[0]?.time | date}}</p>
     </div>
     <div class="detail">
       <h3>Time:</h3>
-      <p>{{selectedEvent[0].time | date:'shortTime':'+0000'}}</p>
+      <p>{{selectedEvent?.[0]?.time | date:'shortTime':'+0000'}}</p>
     </div>
   </div>
   <ion-button color="warning" (click)="deleteEvent()">Delete</ion-button>

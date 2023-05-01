@@ -1,17 +1,17 @@
-<ion-header [translucent]="true">
+<!-- <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
       Blank
     </ion-title>
   </ion-toolbar>
-</ion-header>
+</ion-header> -->
 
 <ion-content [fullscreen]="true" class="page-wrapper home-wrapper">
-  <ion-header collapse="condense">
+  <!-- <ion-header collapse="condense">
     <ion-toolbar>
       <ion-title size="large">Blank</ion-title>
     </ion-toolbar>
-  </ion-header>
+  </ion-header> -->
 
   <div id="container">
     <strong>Birthday Reminder App </strong>
@@ -20,7 +20,7 @@
     <!-- <div> -->
     <ion-button shape="round" class="get-started" (click)="register()" *ngIf="showBtn">Get Started <ion-icon src="../../assets/arrow_left.svg" slot="end"></ion-icon></ion-button>
     <ion-button shape="round" class="get-started" (click)="viewBirthdays()" *ngIf="!showBtn">View Birthdays <ion-icon src="../../assets/arrow_left.svg" slot="end"></ion-icon></ion-button>
-
+      <button>{{showButn$}}</button>
     <!-- </div> -->
   </div>
 </ion-content>

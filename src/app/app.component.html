@@ -12,7 +12,7 @@
         </ng-template>
       </ion-popover> -->
       <!-- <ion-buttons slot="end"> -->
-        <ion-button class="more" (click)="presentPopover($event)" slot="end"><ion-icon name="ellipsis-vertical-outline" slot="icon-only"></ion-icon></ion-button>
+        <ion-button class="more" (click)="presentPopover($event)" slot="end" *ngIf="this.showLoggedOutButton"><ion-icon name="ellipsis-vertical-outline" slot="icon-only"></ion-icon></ion-button>
         <!-- <ion-button (click)="login()" slot="end" *ngIf="showLogInButton">Login</ion-button>
         <ion-button (click)="register()" slot="end" *ngIf="showRegisterButton">Register</ion-button> -->
         <!-- <ion-button routerLink="'/login'" slot="end" >Go To</ion-button> -->
@@ -21,7 +21,7 @@
       <ion-popover #popover [isOpen]="isOpen" (didDismiss)="isOpen = false">
         <ng-template>
           <ion-content class="ion-padding" [fullscreen]="true">
-            <ion-button (click)="logOut()">logout</ion-button>
+            <ion-button (click)="logOut()" class="logout-btn">logout</ion-button>
           </ion-content>
         </ng-template>
       </ion-popover>
