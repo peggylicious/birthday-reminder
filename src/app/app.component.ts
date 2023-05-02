@@ -16,12 +16,7 @@ import { LoaderComponent } from './shared/feature/loader/loader.component';
 export class AppComponent {
   @ViewChild('popover') popover:any;
   isOpen = false;
-  showLogOutButton:string|null = localStorage.getItem('access_token');
-  isLoggedIn:string|null = localStorage.getItem('access_token');
-  showLogInButton:boolean = false;
-  showRegisterButton:boolean = false;
   showLoggedOutButton: boolean = false;
-  showLoggedOutButton$!: Observable<any>;
   urls = ['/', '/home', '/register', '/login']
   enterAnimation = (baseEl: HTMLElement, opts?:any):any => {
     console.log("BaseEl", baseEl)
@@ -30,21 +25,9 @@ export class AppComponent {
 
     return anim
   }
-  constructor(private authService: AuthService, private router: Router, private animationCtrl: AnimationController, private eventsStoreService: EventsStoreService ) {
-    // this.authService.isLoggedOut$.subscribe(res=> {
-    //   console.log(res)
-    //   this.showLoggedOutButton = false
-    //   if(!localStorage.getItem('access_token')){
-    //     this.showLoggedOutButton = false
-    //     console.log("its there")
-    //   }else{
-    //     this.showLoggedOutButton = true
-    //     console.log("not there")
+  constructor(private authService: AuthService, private router: Router, private animationCtrl: AnimationController) {
 
-    //   }
-    // })
     router.events.subscribe(res=> {
-      // console.log(res)
       if(res instanceof NavigationEnd){
         if(localStorage.getItem('access_token')){
           this.showLoggedOutButton = true
@@ -53,30 +36,10 @@ export class AppComponent {
         }else{
           this.showLoggedOutButton = false
         }
-        // console.log(this.showLogInButton, this.showRegisterButton, this.showLoggedOutButton)
       }
     })
   }
 
-ngOnInit(): void {
-  //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
-  //Add 'implements OnInit' to the class.
-  this.eventsStoreService.getEvents()
-  console.log("from app space")
-  this.authService.isLoggedOut$.subscribe(res=> {
-    console.log(res)
-    this.showLoggedOutButton = false
-    if(!localStorage.getItem('access_token')){
-      this.showLoggedOutButton = false
-      console.log("its there")
-    }else{
-      this.showLoggedOutButton = true
-      console.log("not there")
-
-    }
-  })
-
-}
   presentPopover(e: Event) {
     this.popover.event = e;
     this.isOpen = true;
@@ -84,15 +47,8 @@ ngOnInit(): void {
   logOut(){
     this.isOpen = false;
     this.authService.logOut()
-    // this.showLogOutButton = null
     this.showLoggedOutButton = false
-    this.showLogInButton = true
-          this.showRegisterButton = true
-    console.log(this.isLoggedIn)
-
   }
-
-
 
   goToHome(){
     this.router.navigate(['/home'])
