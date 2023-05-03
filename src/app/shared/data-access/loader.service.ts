@@ -9,7 +9,7 @@ export class LoaderService {
   isLoading = new Subject<boolean>()
   loading:any;
   constructor(private loadingCtrl:LoadingController) { }
-  async show(){
+  show(){
     this.isLoading.next(true)
   }
 

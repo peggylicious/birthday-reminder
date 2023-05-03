@@ -16,20 +16,25 @@ import { Router } from '@angular/router';
 })
 export class LoginPage implements OnInit {
   formName: String = 'login'
+  formError: Error = {name: '', message: ''}
+
   constructor(private auth: AuthService, private router: Router) { }
 
   ngOnInit() {
   }
   loginUser(data:User){
     console.log(data)
-    this.auth.login(data).subscribe(res=>{
-      localStorage.setItem('access_token', res.token)
-      localStorage.setItem('reminderUserId', res.loggedUserId)
-      console.log(res)
-      this.router.navigate(["event/event-list"]);
-    }, err=>{
-      throw err
-      console.log("My error", err)
+    this.auth.login(data).subscribe({
+      next: res=>{
+        localStorage.setItem('access_token', res.token)
+        localStorage.setItem('reminderUserId', res.loggedUserId)
+        console.log(res)
+        this.router.navigate(["event/event-list"]);
+      },
+      error: err => {
+        this.formError.message = "Wrong email or password"
+        console.log("My error", err)
+      }
     })
   }
   register(){
