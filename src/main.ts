@@ -8,8 +8,8 @@ import { AppComponent } from './app/app.component';
 import { environment } from './environments/environment';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { JwtModule } from "@auth0/angular-jwt";
-import { ErrorModalService } from './app/shared/feature/error-modal.service';
 import { LoaderInterceptor } from './app/shared/utils/loader.interceptor';
+import { CustomErrorHandler } from './app/shared/data-access/custom-error-handler.service';
 if (environment.production) {
   enableProdMode();
 }
@@ -17,7 +17,7 @@ if (environment.production) {
 bootstrapApplication(AppComponent, {
   providers: [
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
-    {provide: ErrorHandler, useClass: ErrorModalService},
+    {provide: ErrorHandler, useClass: CustomErrorHandler},
     {provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi: true},
     importProvidersFrom(IonicModule.forRoot({})),
     provideRouter(routes),

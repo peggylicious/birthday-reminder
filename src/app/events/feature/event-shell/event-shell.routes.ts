@@ -14,6 +14,14 @@ export const routes: Routes = [
           eventsResolver: EventsResolverResolver
         },
       },
+      {
+        path: 'add-event',
+        loadComponent: () => import('../event-add/event-add.page').then( m => m.EventAddPage)
+      },
+      {
+        path: 'view-event/:id',
+        loadComponent: () => import('../event-detail/event-detail.page').then( m => m.EventDetailPage)
+      },
     ]
   },
   // {
@@ -23,12 +31,4 @@ export const routes: Routes = [
   //     eventsResolver: EventsResolverResolver
   //   },
   // },
-  {
-    path: 'add-event',
-    loadComponent: () => import('../event-add/event-add.page').then( m => m.EventAddPage)
-  },
-  {
-    path: 'view-event/:id',
-    loadComponent: () => import('../event-detail/event-detail.page').then( m => m.EventDetailPage)
-  },
 ];
