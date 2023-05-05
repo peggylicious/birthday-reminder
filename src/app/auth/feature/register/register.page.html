@@ -6,5 +6,6 @@
 
 <ion-content [fullscreen]="true" class="page-wrapper">
   <app-auth-form (onSubmitForm)="registerUser($event)" [formName]="formName"></app-auth-form>
+  <div class="auth-error" style="color: red; font-size: 12px; font-weight: 600">{{ formError.message }}</div>
   <p class="auth-option">Already have an account? <ion-button (click)="login()">Sign In</ion-button></p>
 </ion-content>

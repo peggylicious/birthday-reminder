@@ -1,0 +1,30 @@
+
+<!-- Error Modal -->
+<!-- <ion-modal [isOpen]="isModalOpen">
+    <ng-template>
+      <ion-content class="ion-padding">
+        <p>
+          Available Errors
+        </p>
+        <ion-button color="medium" (click)="cancel()">Cancel</ion-button>
+      </ion-content>
+    </ng-template>
+  </ion-modal> -->
+
+<!-- Error Toast -->
+
+<!-- <ion-header>
+  <ion-toolbar>
+    <ion-title>Inline Toast</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="ion-padding"> -->
+  <!-- <ion-button expand="block" (click)="setOpen(true)">Open</ion-button> -->
+  <ion-toast
+    [isOpen]="isModalOpen"
+    [message]="errorResponse.message"
+    position="top"
+    [buttons]="toastButtons"
+    (didDismiss)="cancel()"
+  ></ion-toast>
+<!-- </ion-content> -->

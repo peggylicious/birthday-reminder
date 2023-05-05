@@ -18,15 +18,22 @@ import { Router } from '@angular/router';
 })
 export class RegisterPage implements OnInit {
   formName: String = 'register'
+  formError: Error = {name: '', message: ''}
   constructor(private auth: AuthService, private router: Router) { }
 
   ngOnInit() {
   }
   registerUser(data:User){
     console.log(data)
-    this.auth.register(data).subscribe(res=>{
-      console.log(res)
-      this.router.navigate(['login'])
+    this.auth.register(data).subscribe({
+      next: res => {
+        console.log(res)
+        this.router.navigate(['login'])
+      },
+      error: err => {
+        this.formError.message = err.error.message
+        console.log(err)
+      }
     })
   }
   login(){
