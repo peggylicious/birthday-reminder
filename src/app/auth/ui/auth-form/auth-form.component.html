@@ -1,7 +1,7 @@
 <form action="" [formGroup]="authForm" (ngSubmit)="onSubmit()">
   <ion-input type="email" label="Email:" labelPlacement="stacked" shape="" fill="solid"[counter]="true"
-    errorText="Please enter a valid email" formControlName="email"></ion-input>
+    [errorText]="emailError" formControlName="email" required></ion-input>
   <ion-input type="password" label="Password:" labelPlacement="stacked" shape="" fill="solid"[counter]="true"
-    errorText="Please enter a valid password" formControlName="password"></ion-input>
+    errorText="Please enter a valid password" formControlName="password" required></ion-input>
     <ion-button type="submit" [disabled]="!authForm.valid">{{formName}}</ion-button>
 </form>

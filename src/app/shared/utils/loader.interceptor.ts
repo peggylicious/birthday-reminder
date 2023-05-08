@@ -15,9 +15,8 @@ export class LoaderInterceptor implements HttpInterceptor {
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
     console.log('caught '+ request.url)
-
-    this.totalRequests++;
     this.loaderService.show()
+    this.totalRequests++;
     return next.handle(request).pipe(finalize(() => {
       this.totalRequests--;
       if (this.totalRequests == 0) {
